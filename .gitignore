@@ -1,0 +1,18 @@
+# Fichiers Terraform à ignorer
+*.tfstate
+*.tfstate.backup
+*.tfvars
+
+# Répertoire local Terraform
+.terraform/
+
+# Fichiers de verrouillage Terraform
+.terraform.lock.hcl
+
+# Fichiers de logs ou temporaires éventuels
+crash.log
+*.log
+
+# Fichiers système
+.DS_Store
+Thumbs.db
