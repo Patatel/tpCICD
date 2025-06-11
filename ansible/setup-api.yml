@@ -1,0 +1,7 @@
+---
+- name: Provision VM for API hosting
+  hosts: webserver
+  become: true
+
+  roles:
+    - api_server

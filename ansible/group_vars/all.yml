@@ -1,0 +1,10 @@
+firewall_ports:
+  - 22
+  - 80
+packages:
+  - curl
+  - git
+  - ufw
+  - nginx
+  - nodejs
+  - npm

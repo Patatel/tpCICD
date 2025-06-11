@@ -1,0 +1,6 @@
+---
+# Pour redémarrer nginx si on modifie des fichiers de conf, à étendre plus tard
+- name: restart nginx
+  service:
+    name: nginx
+    state: restarted
