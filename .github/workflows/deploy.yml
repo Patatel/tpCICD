@@ -3,8 +3,8 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - main
-      - develop
+      - main       # déploiement vers production
+      - develop    # déploiement vers environnement de test
 
 jobs:
   deploy:

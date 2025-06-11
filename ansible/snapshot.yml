@@ -1,0 +1,23 @@
+---
+- name: Create a snapshot of the VM OS disk
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  vars:
+    subscription_id: "4fd0f552-e068-4af4-b066-e7f4b35467e1"
+    resource_group: "terraform-rg"
+    disk_name: "terraform-ubuntu-vm_disk1_16acf3e38c8e44b0a3cc5ca08e457b5c"
+    snapshot_name: "snapshot-{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+
+  tasks:
+    - name: Create snapshot
+      ansible.builtin.command: >
+        az snapshot create
+        --name {{ snapshot_name }}
+        --resource-group {{ resource_group }}
+        --source {{ disk_name }}
+        --location westeurope
+        --output none
+      environment:
+        AZURE_SUBSCRIPTION_ID: "{{ subscription_id }}"
