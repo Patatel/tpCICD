@@ -1,0 +1,15 @@
+---
+- name: Rollback to previous API version
+  hosts: webserver
+  become: true
+
+  tasks:
+    - name: Clone previous release tag
+      git:
+        repo: "https://github.com/<ton-user>/<ton-repo>.git"
+        dest: /var/www/api
+        version: "v1.1.0"
+        force: yes
+
+    - name: Restart API service (PM2 or NGINX)
+      shell: pm2 restart all || systemctl restart nginx
